@@ -9,7 +9,7 @@
         <div class="col-md-12">
             <div class="card border-0 shadow">
                 <div class="card-header">
-                    <h6 class="m-0 font-weight-bold"><i class="fas fa-user-tie"></i>  Admin</h6>
+                    <h6 class="m-0 font-weight-bold"><i class="fas fa-user-tie"></i>  Teknisi</h6>
                 </div>
 
                 <div class="card-body">
@@ -21,7 +21,7 @@
                                         style="padding-top: 10px;"><i class="fa fa-plus-circle"></i> TAMBAH</a>
                                 </div>
                                 <input type="text" class="form-control" name="q"
-                                    placeholder="cari berdasarkan nama user">
+                                    placeholder="cari berdasarkan nama teknisi">
                                 <div class="input-group-append">
                                     <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> CARI
                                     </button>
