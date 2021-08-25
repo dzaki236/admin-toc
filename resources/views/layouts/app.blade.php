@@ -71,7 +71,7 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ URL::to('/admin/dashboard') }}">
         <div class="sidebar-brand-icon">
-          <i class="fab fa-dashcube"></i>
+          <i class="fas fa-headset"></i>
         </div>
         <div class="sidebar-brand-text mx-3">TOC Admin</div>
       </a>
@@ -90,12 +90,12 @@
       <hr class="sidebar-divider">
 
       <!-- Heading -->
-      <div class="sidebar-heading">
+      {{-- <div class="sidebar-heading">
         PRODUK
-      </div>
+      </div> --}}
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item {{ Request::is('admin/category*') ? ' active' :  '' }} {{ Request::is('admin/product*') ? ' active' :  '' }}">
+      {{-- <li class="nav-item {{ Request::is('admin/category*') ? ' active' :  '' }} {{ Request::is('admin/product*') ? ' active' :  '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
           <i class="fa fa-shopping-bag"></i>
           <span>PRODUK</span>
@@ -107,11 +107,11 @@
             <a class="collapse-item {{ Request::is('admin/product*') ? ' active' : '' }}" href="{{ route('admin.product.index') }}">PRODUK</a>
           </div>
         </div>
-      </li>
+      </li> --}}
 
-      <div class="sidebar-heading">
+      {{-- <div class="sidebar-heading">
         ORDERS
-      </div>
+      </div> --}}
 
       <li class="nav-item {{ Request::is('admin/order*') ? ' active' :  '' }}">
         <a class="nav-link" href="{{ route('admin.order.index') }}">
@@ -121,7 +121,7 @@
       </li>
       <li class="nav-item {{ Request::is('admin/bukti*') ? ' active' :  '' }}">
         <a class="nav-link" href="{{ route('admin.bukti.index') }}">
-           <i class="fas fa-shopping-cart"></i>
+          <i class="fas fa-file-invoice-dollar"></i>
            <span>BUKTI TRANSAKSI</span>
         </a>
       </li>
@@ -133,7 +133,7 @@
         </a>
     </li>
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item {{ Request::is('admin/reseller*') ? ' active' :  '' }} {{ Request::is('admin/product*') ? ' active' :  '' }}">
+      {{-- <li class="nav-item {{ Request::is('admin/reseller*') ? ' active' :  '' }} {{ Request::is('admin/product*') ? ' active' :  '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fa fa-users"></i>
           <span>RESELLER</span>
@@ -146,7 +146,7 @@
             <a class="collapse-item {{ Request::is('admin/reseller-klaim') ? ' active' : '' }}" href="{{ route('admin.klaim.index') }}">DATA KLAIM</a>
           </div>
         </div>
-      </li>
+      </li> --}}
 
     
     <li class="nav-item {{ Request::is('admin/slider*') ? ' active' :  '' }}">
@@ -165,8 +165,15 @@
 
  <li class="nav-item {{ Request::is('admin/user*') ? ' active' :  '' }}">
   <a class="nav-link" href="{{ route('admin.user.index') }}">
-      <i class="fas fa-users"></i>
-      <span>USERS</span>
+    <i class="fas fa-user-secret"></i>
+      <span>ADMIN</span>
+   </a>
+</li>
+
+<li class="nav-item {{ Request::is('admin/teknisi*') ? ' active' :  '' }}">
+  <a class="nav-link" href="{{ route('admin.teknisi.index') }}">
+    <i class="fas fa-user-tie"></i>
+      <span>TEKNISI</span>
    </a>
 </li>
 

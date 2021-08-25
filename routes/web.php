@@ -39,22 +39,18 @@ Route::prefix('admin')->group(function () {
        // Route::delete('/order/{id}',[OrderController::class,'destroy']);
         //route customer
         Route::get('/customer', [CustomerController::class, 'index'])->name('admin.customer.index');
-
-        //route mitra reseller
-        Route::get('/reseller-mitra', [ResellerController::class, 'index'])->name('admin.reseller.index');
-        //reoute member customer dari reseller
-        Route::get('/member-reseller/{kode_mitra}', [ResellerController::class, 'memberIndex'])->name('admin.reseller.member');
-        //route transaksi order reseller
-        Route::get('/order-reseller/{kode_mitra}', [ResellerController::class, 'order'])->name('admin.reseller.order');
-
-        Route::get('/reseller-profit', [ResellerController::class, 'showKonfigProfit'])->name('admin.konfig.profit');
-        Route::post('/konfig-profit', [ResellerController::class, 'showKonfigProfit'])->name('admin.konfig.store');
-
-        Route::post('/verify-reseller', [ResellerController::class, 'updateVerify'])->name('admin.reseller.verify');
         //route slider
         Route::resource('/slider', SliderController::class, ['except' => ['show', 'create', 'edit', 'update'], 'as' => 'admin']);
         //profile
         Route::get('/profile', [ProfileController::class, 'index'])->name('admin.profile.index');
+
+        Route::get('/teknisi', [TeknisiController::class, 'index'])->name('admin.teknisi.index');
+        Route::get('/teknisi/create', [TeknisiController::class, 'create'])->name('admin.teknisi.create');
+        Route::post('/teknisi/create', [TeknisiController::class, 'store'])->name('admin.teknisi.store');
+        Route::get('/teknisi/edit/{id}', [TeknisiController::class, 'edit'])->name('admin.teknisi.edit');
+        Route::put('/teknisi/edit/{id}', [TeknisiController::class, 'update'])->name('admin.teknisi.update');
+        Route::delete('/teknisi/{id}', [TeknisiController::class, 'destroy'])->name('admin.teknisi.destroy');
+
         //route user
         Route::resource('/user', UserController::class, ['except' => ['show'], 'as' => 'admin']);
 
@@ -63,8 +59,19 @@ Route::prefix('admin')->group(function () {
         Route::get('/bukti/show/{id}', [BuktidataController::class, 'show'])->name('admin.bukti.show');
         Route::put('/bukti/update', [BuktidataController::class, 'update'])->name('admin.bukti.update');
 
-        Route::get('/klaim', [KlaimController::class, 'index'])->name('admin.klaim.index');
-        Route::get('/klaim/show/{id}', [KlaimController::class, 'show'])->name('admin.klaim.show');
-        Route::put('/klaim/update', [KlaimController::class, 'update'])->name('admin.klaim.update');
+        // //route mitra reseller
+        // Route::get('/reseller-mitra', [ResellerController::class, 'index'])->name('admin.reseller.index');
+        // //reoute member customer dari reseller
+        // Route::get('/member-reseller/{kode_mitra}', [ResellerController::class, 'memberIndex'])->name('admin.reseller.member');
+        // //route transaksi order reseller
+        // Route::get('/order-reseller/{kode_mitra}', [ResellerController::class, 'order'])->name('admin.reseller.order');
+
+        // Route::get('/reseller-profit', [ResellerController::class, 'showKonfigProfit'])->name('admin.konfig.profit');
+        // Route::post('/konfig-profit', [ResellerController::class, 'showKonfigProfit'])->name('admin.konfig.store');
+
+        // Route::post('/verify-reseller', [ResellerController::class, 'updateVerify'])->name('admin.reseller.verify');
+        // Route::get('/klaim', [KlaimController::class, 'index'])->name('admin.klaim.index');
+        // Route::get('/klaim/show/{id}', [KlaimController::class, 'show'])->name('admin.klaim.show');
+        // Route::put('/klaim/update', [KlaimController::class, 'update'])->name('admin.klaim.update');
     });
 });
