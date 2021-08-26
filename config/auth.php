@@ -46,6 +46,11 @@ return [
             'provider' => 'customers',
             'hash' => false,
         ],
+        'teknisi-api' => [
+            'driver' => 'jwt',
+            'provider' => 'teknisi',
+            'hash' => false,
+        ],
     ],
 
     /*
@@ -73,6 +78,10 @@ return [
         'customers' => [
             'driver' => 'eloquent',
             'model' => App\Models\Customer::class,
+        ],
+        'teknisi' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Teknisi::class,
         ],
 
         // 'users' => [
