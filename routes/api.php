@@ -35,6 +35,8 @@ Route::post('teknisi/register', [teknisi\AuthController::class, 'register'])->na
 
 Route::group(['middleware' => 'auth:teknisi-api'], function () {
     Route::get('teknisi', [teknisi\AuthController::class, 'getUser'])->name('api.teknisi.user');
+    Route::get('repair', [teknisi\RepairController::class, 'index'])->name('api.repair.index');
+    Route::post('repair', [teknisi\RepairController::class, 'repair'])->name('api.repair.store');
 });
 
 
