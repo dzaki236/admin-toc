@@ -15,15 +15,17 @@ class CreateOrdersTable extends Migration
 {
   Schema::create('orders', function (Blueprint $table) {
     $table->id();
-    $table->unsignedBigInteger('invoice_id');
-    $table->string('invoice');
-    $table->unsignedBigInteger('product_id');
-    $table->string('product_name');
-    $table->string('image');
-    $table->integer('qty');
-    $table->integer('price');
-    $table->enum('jenis', array('jasa', 'produk'));
+    $table->unsignedBigInteger('customer_id');
+    $table->string('name');
+    $table->string('device');
+    $table->datetime('order_call');
+    $table->text('description');
+    $table->text('alamat');
+    $table->integer('cost_transport');
+    $table->integer('down_payment')->nullable();
+    $table->enum('status', array('menunggu', 'cancel', 'selesai'));
     $table->timestamps();
+
  });
 }
 

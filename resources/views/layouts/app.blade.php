@@ -90,12 +90,12 @@
       <hr class="sidebar-divider">
 
       <!-- Heading -->
-      {{-- <div class="sidebar-heading">
+      <div class="sidebar-heading">
         PRODUK
-      </div> --}}
+      </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      {{-- <li class="nav-item {{ Request::is('admin/category*') ? ' active' :  '' }} {{ Request::is('admin/product*') ? ' active' :  '' }}">
+      <li class="nav-item {{ Request::is('admin/category*') ? ' active' :  '' }} {{ Request::is('admin/product*') ? ' active' :  '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
           <i class="fa fa-shopping-bag"></i>
           <span>PRODUK</span>
@@ -107,11 +107,11 @@
             <a class="collapse-item {{ Request::is('admin/product*') ? ' active' : '' }}" href="{{ route('admin.product.index') }}">PRODUK</a>
           </div>
         </div>
-      </li> --}}
+      </li>
 
-      {{-- <div class="sidebar-heading">
+      <div class="sidebar-heading">
         ORDERS
-      </div> --}}
+      </div>
 
       <li class="nav-item {{ Request::is('admin/order*') ? ' active' :  '' }}">
         <a class="nav-link" href="{{ route('admin.order.index') }}">

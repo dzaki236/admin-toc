@@ -15,21 +15,15 @@ class CreateRepairsTable extends Migration
     {
         Schema::create('repairs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('product_id');
-            $table->unsignedBigInteger('customer_id');
             $table->unsignedBigInteger('order_id');
-            $table->enum('hardware', array('laptop', 'komputer','printer','lainnya'));
-            $table->string('description');
-            $table->integer('dp');
-            $table->string('pickup_address');
-            $table->dateTime('pickup_datetime', $precision = 0);
             $table->unsignedBigInteger('teknisi_id');
-            $table->string('feedback_teknisi');
-            $table->enum('admin_approval',array('yes','no','pending'));
-            $table->enum('customer_confirmation',array('yes','no','pending'));
-            $table->string('customer_message');
-            $table->integer('fullpay');
-            $table->enum('status',array('execute','deliver','finish'));
+            $table->unsignedBigInteger('product_id')->nullable();
+            $table->string('component')->nullable();
+            $table->text('feedback_teknisi');
+            $table->text('deskripsi_tindakan');
+            $table->enum('approval_customer', array('menunggu', 'cancel', 'approve'));
+            $table->enum('status', array('menunggu', 'cancel', 'finish'));
+            $table->text('message');
             $table->timestamps();
         });
     }
