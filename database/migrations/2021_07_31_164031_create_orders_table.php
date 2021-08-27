@@ -18,7 +18,7 @@ class CreateOrdersTable extends Migration
     $table->unsignedBigInteger('customer_id');
     $table->string('name');
     $table->string('device');
-    $table->datetime('order_call');
+    $table->date('order_call');
     $table->text('description');
     $table->text('alamat');
     $table->integer('cost_transport');

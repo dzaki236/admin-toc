@@ -30,7 +30,7 @@ class AuthController extends Controller
         }
 
         $image = $request->file('photo')->getClientOriginalName();
-        $request->file('photo')->move(public_path('upload/bukti'), $image);
+        $request->file('photo')->move(public_path('upload/teknisi'), $image);
 
         $teknisi = Teknisi::create([
             'name'      => $request->name,
