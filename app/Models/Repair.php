@@ -9,6 +9,6 @@ class Repair extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'product_id', 'teknisi_id', 'order_id', 'component','feedback_teknisi','deskripsi_tindakan','approval_customer','message','status'
+        'teknisi_id', 'order_id','feedback_teknisi','deskripsi_tindakan', 'jasa_teknisi', 'total_component', 'approval_customer','message','status'
     ];
 }

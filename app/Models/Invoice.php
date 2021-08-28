@@ -15,7 +15,7 @@ class Invoice extends Model
      * @var array
      */
     protected $fillable = [
-        'invoice', 'customer_id', 'courier', 'service', 'cost_courier', 'weight', 'name', 'phone', 'province', 'city', 'address', 'status', 'snap_token', 'grand_total'
+        'invoice', 'customer_id', 'teknisi_id', 'order_id', 'name', 'device', 'order_call', 'description', 'alamat','feedback_teknisi','deskripsi_tindakan', 'jasa_teknisi', 'total_component', 'cost_transport', 'down_payment', 'status', 'grand_total'
     ];
 
     /**

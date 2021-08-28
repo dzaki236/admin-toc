@@ -15,6 +15,7 @@ class CreateOrdersTable extends Migration
 {
   Schema::create('orders', function (Blueprint $table) {
     $table->id();
+    $table->text('kode_order');
     $table->unsignedBigInteger('customer_id');
     $table->string('name');
     $table->string('device');
@@ -23,7 +24,7 @@ class CreateOrdersTable extends Migration
     $table->text('alamat');
     $table->integer('cost_transport');
     $table->integer('down_payment')->nullable();
-    $table->enum('status', array('menunggu', 'cancel', 'selesai'));
+    $table->enum('status', array('menunggu', 'cancel', 'pengerjaan', 'selesai'));
     $table->timestamps();
 
  });

@@ -17,11 +17,11 @@ class CreateRepairsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('teknisi_id');
-            $table->unsignedBigInteger('product_id')->nullable();
-            $table->string('component')->nullable();
             $table->text('feedback_teknisi');
             $table->text('deskripsi_tindakan');
-            $table->enum('approval_customer', array('menunggu', 'cancel', 'approve'));
+            $table->integer('jasa_teknisi');
+            $table->integer('total_component')->nullable();
+            $table->enum('approval_customer', array('menunggu', 'cancel', 'pengerjaan'));
             $table->enum('status', array('menunggu', 'cancel', 'finish'));
             $table->text('message');
             $table->timestamps();
