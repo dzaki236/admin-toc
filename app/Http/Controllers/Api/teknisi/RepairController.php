@@ -5,9 +5,16 @@ namespace App\Http\Controllers\Api\teknisi;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Repair;
+use App\Models\Cart;
+use App\Models\Component;
 
 class RepairController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:teknisi-api');
+    }
+    
     public function index()
     {
         $repair = Repair::where('teknisi_id',auth()->guard('teknisi-api')->user()->id)->latest()->get();
@@ -23,8 +30,8 @@ class RepairController extends Controller
         $repair = Repair::create([
             'teknisi_id' => auth()->guard('teknisi-api')->user()->id,
             'order_id' => $request->order_id,
-            'product_id' => $request->product_id,
-            'component' => $request->component,
+            'jasa_teknisi' => $request->jasa_teknisi,
+            'total_component' => $request->total_component,
             'feedback_teknisi' => $request->feedback_teknisi,
             'deskripsi_tindakan' => $request->deskripsi_tindakan,
             'approval_customer' => 'menunggu',
@@ -33,11 +40,35 @@ class RepairController extends Controller
         ]);
 
         if ($repair) {
+            $item = Cart::where('order_id',$repair->order_id)->where('teknisi_id', $repair->teknisi_id);
+            if ($item) {
+                foreach($item as $value){
+                    $produk = Product::where('id',$value->product_id)->first();
+                    $data = array(
+                        'order_id'    => $value->order_id,
+                        'product_id'    => $value->product_id,
+                        'name'  => $value->product->name,
+                        'image'         => $value->product->image,
+                        'qty'           => $value->quantity,
+                        'price'         => $produk->price,
+                        'total_harga'         => $value->price,
+                    );
+                $component = Component::create($data);
+            }
             return response()->json([
                 'success'   => true,
                 'message'   => 'Success Make a repair',
-                'repair'   => $repair
+                'repair'   => $repair,
+                'component'=> $repair
             ]);
+          }
+          else{
+            return response()->json([
+                'success'   => true,
+                'message'   => 'Success Make a repair',
+                'repair'   => $repair,
+            ]);
+          }
         }
         else {
             return response()->json([
@@ -45,5 +76,31 @@ class RepairController extends Controller
                 'message'   => 'Failed Make a Repair',
             ]);
         }
+ }
+
+    public function update(Request $request, $id)
+    {
+        $repair = Repair::where('id',$id)->first();
+        $repair->update([
+            'jasa_teknisi' => $request->jasa_teknisi,
+            'total_component' => $request->total_component,
+            'feedback_teknisi' => $request->feedback_teknisi,
+            'deskripsi_tindakan' => $request->deskripsi_tindakan,
+            'status' => $request->status,
+        ]);
+    if ($repair) {
+        return response()->json([
+            'success'   => true,
+            'message'   => 'Success Update a repair',
+            'repair'   => $repair
+        ]);
+    }
+    else {
+        return response()->json([
+            'success'   => false,
+            'message'   => 'Failed Update a Repair',
+        ]);
+    }
+    
     }
 }

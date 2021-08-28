@@ -37,6 +37,13 @@ Route::group(['middleware' => 'auth:teknisi-api'], function () {
     Route::get('teknisi', [teknisi\AuthController::class, 'getUser'])->name('api.teknisi.user');
     Route::get('repair', [teknisi\RepairController::class, 'index'])->name('api.repair.index');
     Route::post('repair', [teknisi\RepairController::class, 'repair'])->name('api.repair.store');
+
+    Route::get('/cart', [teknisi\CartController::class, 'index'])->name('teknisi.cart.index');
+    Route::post('/cart', [teknisi\CartController::class, 'store'])->name('teknisi.cart.store');
+    Route::get('/cart/total', [teknisi\CartController::class, 'getCartTotal'])->name('teknisi.cart.total');
+    Route::get('/cart/totalWeight', [teknisi\CartController::class, 'getCartTotalWeight'])->name('teknisi.cart.getCartTotalWeight');
+    Route::post('/cart/remove', [teknisi\CartController::class, 'removeCart'])->name('teknisi.cart.remove');
+    Route::post('/cart/removeAll', [teknisi\CartController::class, 'removeAllCart'])->name('teknisi.cart.removeAll');
 });
 
 
