@@ -16,7 +16,7 @@ class CartController extends Controller
     public function index()
     {
         $cart = Cart::with('product')
-            ->where('reseller_id', auth()->user()->id)
+            ->where('teknisi_id', auth()->user()->id)
             ->orderBy('created_at', 'desc')
             ->get();
 
@@ -30,13 +30,15 @@ class CartController extends Controller
 
     public function store(Request $request)
     {
-        $item = Cart::where('product_id',$request->product_id)->where('order_id',$request->order_id)->where('teknisi_id', $request->teknisi_id);
+        $item = Cart::where('product_id',$request->product_id)->where('order_id',$request->order_id)->where('teknisi_id', auth()->user()->id);
 
         if ($item->count()) {
-            $item->increment('qty');
+            // $item->increment('quantity');
             $item = $item->first();
-            $price = $request->price * $item->quantity;
+            $qty = $request->quantity + $item->quantity;
+            $price = $request->price * $qty;
             $item->update([
+                'quantity' => $qty,
                 'price' => $price
             ]);
         } else{
@@ -45,11 +47,25 @@ class CartController extends Controller
             $item = Cart::create([
                 'order_id' => $request->order_id,
                 'product_id'    => $request->product_id,
-                'reseller_id'   => $request->reseller_id,
+                'teknisi_id'   => auth()->user()->id,
                 'quantity'      => $request->quantity,
                 'price'         => $pricetotal,
             ]);
         }
+    }
+
+    public function getCartTotal()
+    {
+        $carts = Cart::with('product')
+                ->where('teknisi_id', auth()->user()->id)
+                ->orderBy('created_at', 'desc')
+                ->sum('price');
+        
+        return response()->json([
+            'success' => true,
+            'message' => 'Total Cart Price ',
+            'total'   => $carts
+        ]);
     }
 
     public function removeCart(Request $request)
