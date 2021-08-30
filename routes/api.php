@@ -26,6 +26,8 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::get('customer', [customer\AuthController::class, 'getUser'])->name('api.customer.user');
     Route::get('order', [customer\OrderController::class, 'index'])->name('api.order.index');
     Route::post('order', [customer\OrderController::class, 'order'])->name('api.order.store');
+    Route::post('approve/{id}', [customer\OrderController::class, 'approve'])->name('api.order.approve');
+    Route::post('dp/{id}', [customer\OrderController::class, 'updateDP'])->name('api.order.dp');
 });
 
 
@@ -37,7 +39,7 @@ Route::group(['middleware' => 'auth:teknisi-api'], function () {
     Route::get('teknisi', [teknisi\AuthController::class, 'getUser'])->name('api.teknisi.user');
     Route::get('repair', [teknisi\RepairController::class, 'index'])->name('api.repair.index');
     Route::post('repair', [teknisi\RepairController::class, 'repair'])->name('api.repair.store');
-
+    Route::post('repair/update', [teknisi\RepairController::class, 'update'])->name('api.repair.update');
     Route::get('/cart', [teknisi\CartController::class, 'index'])->name('teknisi.cart.index');
     Route::post('/cart', [teknisi\CartController::class, 'store'])->name('teknisi.cart.store');
     Route::get('/cart/total', [teknisi\CartController::class, 'getCartTotal'])->name('teknisi.cart.total');

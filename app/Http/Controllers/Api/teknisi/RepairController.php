@@ -80,7 +80,7 @@ class RepairController extends Controller
 
     public function update(Request $request, $id)
     {
-        $repair = Repair::where('id',$id)->first();
+        $repair = Repair::findOrFail($id);
         $repair->update([
             'jasa_teknisi' => $request->jasa_teknisi,
             'total_component' => $request->total_component,
