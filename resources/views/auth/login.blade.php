@@ -10,7 +10,7 @@
             <div class="col-md-4">
                 <div class="img-logo text-center mt-5">
                     <img src="{{ asset('assets/img/company.png') }}"
-                        style="width: 80px;">
+                        style="width: 180px;">
                 </div>
                 <div class="card o-hidden border-0 shadow-lg mb-3 mt-5">
                     <div class="card-body p-4">
