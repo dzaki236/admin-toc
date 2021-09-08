@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Teknisi;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class TeknisiController extends Controller
 {
@@ -32,11 +34,13 @@ class TeknisiController extends Controller
         ]); 
  
         //upload image
-        $image = $request->file('photo')->getClientOriginalName();
-        $request->file('photo')->move(public_path('upload/teknisi'), $image);
+        $image = $request->file('photo');
+       $image->storeAs('public/teknisi', $image->hashName());
+
+      //  $request->file('photo')->move(public_path('upload/teknisi'), $image);
         //save to DB
         $teknisi = Teknisi::create([
-            'photo'          => $image,
+            'photo'          => $image->hashName(),
             'name'          => $request->name,
             'email'       => $request->email,
             'phone'           => $request->phone,
