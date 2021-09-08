@@ -17,7 +17,7 @@
     <link href="{{ asset('assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
 </head>
 
-<body style="background-color: #e2e8f0;">
+<body style="" class=" bg-success">
 
     @yield('content')
 
