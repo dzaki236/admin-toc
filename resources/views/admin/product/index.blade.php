@@ -34,7 +34,9 @@
                             <thead>
                                 <tr>
                                     <th scope="col" style="text-align: center;width: 6%">NO.</th>
+                                    <th scope="col">GAMBAR</th>
                                     <th scope="col">NAMA PRODUK</th>
+                                    
                                     <th scope="col">KATEGORI</th>
                                     <th scope="col" style="width: 15%;text-align: center">AKSI</th>
                                 </tr>
@@ -44,6 +46,10 @@
                                 <tr>
                                     <th scope="row" style="text-align: center">
                                         {{ ++$no + ($products->currentPage()-1) * $products->perPage() }}</th>
+                                        <td class="text-center">
+                                            <img src="{{ $product->image }}"
+                                                style="width:50px">
+                                        </td>
                                     <td>{{ $product->title }}</td>
                                     <td>{{ $product->category->name }}</td>
                                     <td class="text-center">
