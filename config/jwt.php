@@ -276,7 +276,7 @@ return [
         */
 
         'jwt' => Tymon\JWTAuth\Providers\JWT\Namshi::class,
-
+        
         /*
         |--------------------------------------------------------------------------
         | Authentication Provider
