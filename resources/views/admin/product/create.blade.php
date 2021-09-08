@@ -97,7 +97,7 @@
 
                       
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label>HARGA </label>
                                     <input type="number" name="price" id="pricebase" class="form-control @error('price') is-invalid @enderror"
@@ -110,7 +110,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label>DISKON (%)</label>
                                     <input type="number" id="discount" name="discount" class="form-control @error('discount') is-invalid @enderror"
@@ -123,19 +123,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>MAX Ambil (Pcs)</label>
-                                    <input type="number" name="promo_max" class="form-control @error('promo_max') is-invalid @enderror"
-                                        value="{{ old('promo_max') }}" placeholder="Maksimum Beli ">
-
-                                    @error('promo_max')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
-                            </div>
+                            
                            
                         </div>
 
