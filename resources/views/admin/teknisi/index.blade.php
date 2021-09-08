@@ -47,8 +47,10 @@
                                     <th scope="row" style="text-align: center">
                                         {{ ++$no + ($teknisi->currentPage()-1) * $teknisi->perPage() }}</th>
                                     <td>{{ $user->name }}</td>
-                                    <td> <img src="{{asset('upload/teknisi/'. $user->photo . '.jpg') }}" alt="" style="height: 100px">
-                                        </td>
+                                    <td class="text-center">
+                                        <img src="{{ $user->image."/".$user->photo }}"
+                                            style="width:50px">
+                                    </td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->phone }}</td>
                                     <td class="text-center">
