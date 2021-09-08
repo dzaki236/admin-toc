@@ -36,6 +36,7 @@
                                     <th scope="col" style="text-align: center;width: 6%">NO.</th>
                                     <th scope="col">GAMBAR</th>
                                     <th scope="col">NAMA KATEGORI</th>
+                                    <th scope="col">JENIS</th>
                                     <th scope="col" style="width: 15%;text-align: center">AKSI</th>
                                 </tr>
                             </thead>
@@ -49,6 +50,7 @@
                                             style="width:50px">
                                     </td>
                                     <td>{{ $category->name }}</td>
+                                    <td>{{ $category->jenis}}</td>
                                     <td class="text-center">
                                         <a href="{{ route('admin.category.edit', $category->id) }}"
                                             class="btn btn-sm btn-primary">
