@@ -26,6 +26,6 @@ class Slider extends Model
      */
     public function getImageAttribute($image)
     {
-        return asset('upload/sliders/' . $image);
+        return asset('storage/sliders/' . $image);
     }
 }

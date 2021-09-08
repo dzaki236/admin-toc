@@ -26,7 +26,7 @@ class Product extends Model
      */
     public function getImageAttribute($image)
     {
-        return asset('upload/product/' . $image);
+        return asset('storage/products/' . $image);
     }
     /**
      * category

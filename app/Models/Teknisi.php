@@ -29,7 +29,10 @@ class Teknisi extends Authenticatable implements JWTSubject
         'password',
         'remember_token',
     ];
-
+    public function getImageAttribute($image)
+    {
+        return asset('storage/teknisi/' . $image);
+    }
     public function getJWTIdentifier()
     {
         return $this->getKey();
@@ -44,5 +47,5 @@ class Teknisi extends Authenticatable implements JWTSubject
     {
         return [];
     }
-
+   
 }
