@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Models\Invoice;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,11 +15,11 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $invoices = Invoice::latest()->when(request()->q, function($invoices) {
-            $invoices = $invoices->where('invoice', 'like', '%'. request()->q . '%');
+        $orders = Order::latest()->when(request()->q, function($orders) {
+            $orders = $orders->where('kode_order', 'like', '%'. request()->q . '%');
         })->paginate(10);
-
-        return view('admin.order.index', compact('invoices'));
+        //dd($orders);
+        return view('admin.order.index', compact('orders'));
     }
   
     

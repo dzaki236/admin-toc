@@ -30,25 +30,25 @@
                             <thead>
                                 <tr>
                                     <th scope="col" style="text-align: center;width: 6%">NO.</th>
-                                    <th scope="col">NO. INVOICE</th>
+                                    <th scope="col">NO. Order</th>
                                     <th scope="col">NAMA LENGKAP</th>
-                                    <th scope="col">GRAND TOTAL</th>
+                                    <th scope="col">Down Payment</th>
                                     <th scope="col">STATUS</th>
                                     <th scope="col" style="width: 15%;text-align: center">AKSI</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($invoices as $no => $invoice)
+                                @forelse ($orders as $no => $order)
                                 <tr>
                                     <th scope="row" style="text-align: center">
-                                        {{ ++$no + ($invoices->currentPage()-1) * $invoices->perPage() }}</th>
-                                    <td>{{ $invoice->invoice }}</td>
-                                    <td>{{ $invoice->name }}</td>
+                                        {{ ++$no + ($orders->currentPage()-1) * $orders->perPage() }}</th>
+                                    <td>{{ $order->down_payment }}</td>
+                                    <td>{{ $order->name }}</td>
                                    
-                                    <td>{{ moneyFormat($invoice->grand_total) }}</td>
-                                    <td class="text-center">{{ $invoice->status }}</td>
+                                    <td>{{ moneyFormat($order->down_payment) }}</td>
+                                    <td class="text-center">{{ $order->status }}</td>
                                     <td class="text-center">
-                                        <a href="{{ route('admin.order.show', $invoice->id) }}"
+                                        <a href="{{ route('admin.order.show', $order->id) }}"
                                             class="btn btn-sm btn-primary">
                                             <i class="fa fa-list-ul"></i>
                                         </a>
@@ -65,7 +65,7 @@
                             </tbody>
                         </table>
                         <div style="text-align: center">
-                            {{ $invoices->links("vendor.pagination.bootstrap-4") }}
+                            {{ $orders->links("vendor.pagination.bootstrap-4") }}
                         </div>
                     </div>
                 </div>

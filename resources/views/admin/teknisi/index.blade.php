@@ -34,7 +34,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col" style="text-align: center;width: 6%">NO.</th>
-                                    <th scope="col">NAMA USER</th>
+                                    <th scope="col">NAMA TEKNISI</th>
                                     <th scope="col">FOTO</th>
                                     <th scope="col">EMAIL</th>
                                     <th scope="col">TELPON</th>

@@ -156,12 +156,12 @@
        </a>
    </li>
 
-   <li class="nav-item {{ Request::is('admin/profile*') ? ' active' :  '' }}">
+   {{-- <li class="nav-item {{ Request::is('admin/profile*') ? ' active' :  '' }}">
     <a class="nav-link" href="{{ route('admin.profile.index') }}">
        <i class="fas fa-user-circle"></i>
        <span>PROFILE</span>
      </a>
- </li>
+ </li> --}}
 
  <li class="nav-item {{ Request::is('admin/user*') ? ' active' :  '' }}">
   <a class="nav-link" href="{{ route('admin.user.index') }}">

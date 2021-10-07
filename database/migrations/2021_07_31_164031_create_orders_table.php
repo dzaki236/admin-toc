@@ -16,6 +16,7 @@ class CreateOrdersTable extends Migration
   Schema::create('orders', function (Blueprint $table) {
     $table->id();
     $table->text('kode_order');
+    $table->foreign('invoice_id')->references('id')->on('invoices');
     $table->unsignedBigInteger('customer_id');
     $table->string('name');
     $table->string('device');
