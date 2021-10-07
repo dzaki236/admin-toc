@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Orders'])
+@extends('layouts.app', ['title' => 'INVOICES'])
 
 @section('content')
 <!-- Begin Page Content -->
@@ -9,7 +9,7 @@
         <div class="col-md-12">
             <div class="card border-0 shadow">
                 <div class="card-header">
-                    <h6 class="m-0 font-weight-bold"><i class="fas fa-shopping-cart"></i> ORDERS</h6>
+                    <h6 class="m-0 font-weight-bold"><i class="fas fa-shopping-cart"></i> INVOICES</h6>
                 </div>
 
                 <div class="card-body">
@@ -38,7 +38,9 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                {{-- {{ $orders }} --}}
                                 @forelse ($orders as $no => $order)
+                                {{ $order }}
                                 <tr>
                                     <th scope="row" style="text-align: center">
                                         {{ ++$no + ($orders->currentPage()-1) * $orders->perPage() }}</th>
