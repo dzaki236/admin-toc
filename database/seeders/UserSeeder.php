@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Seeder;
-
+use Hash;
 class UserSeeder extends Seeder
 {
     /**
@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
         User::create([
             'name'      => 'Admin TOC',
             'email'     => 'admin@gmail.com',
-            'password'  => bcrypt('password')
+            'password'  => Hash::make('password')
         ]);
     }
 }
